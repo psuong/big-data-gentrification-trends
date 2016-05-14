@@ -6,8 +6,14 @@ console.log(x_ax);
 
 var chart = c3.generate({
     data: {
-        url: 'grouped_neighborhoods.json',
-        // x: 'year',
+        url: '../data/grouped_neighborhoods.json',
+        // json:[
+        //     '../data/grouped_neighborhoods.json'
+        // ],
+        keys: {
+            x: 'year',
+            value: ['familysize', 'price']
+        }
     },
     // axis: {
     //     x: {
@@ -19,3 +25,4 @@ var chart = c3.generate({
     //     }
     // }
 });
+console.log('done')
