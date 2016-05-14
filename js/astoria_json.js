@@ -10,17 +10,13 @@ $(document).ready(function () {
                 keys: {
                     x: 'year',
                     y: 'price',
-                    value: ['familysize', 'price', 'year']
+                    value: ['familysize', 'price']
                 }
             },
             axis: {
                 x: {
                     label: {
                         text: 'Year'
-                    },
-                    type: 'timeseries',
-                    tick: {
-                        format: '%Y'
                     },
                     show: true
                 },
