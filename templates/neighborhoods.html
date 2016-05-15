@@ -2,13 +2,25 @@
 
 {% block body %}
 
-<select name="neighborhood">
-    {% for neighborhood in neighborhoods %}
-        <option value="{{ neighborhood }}">{{ neighborhood }}</option>
-    {% endfor %}
-</select>
+{% include 'navbar.html' %}
 
-<div id="median-housing">
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group">
+            <fieldset class="form-group">
+                <label for="neighborhood-form">Neighborhood: </label>
+                <select name="neighborhood" class="form-control" id="neighborhood-form">
+                    <option value="" disabled selected>Choose a neighborhood from the following list</option>
+                    {% for neighborhood in neighborhoods %}
+                    <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </fieldset>
+        </div>
+    </form>
+
+    <div id="median-housing"></div>
 </div>
 
 <script src="../static/js/load_json.js"></script>
