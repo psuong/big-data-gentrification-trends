@@ -7,7 +7,7 @@ $(document).ready(function () {
         for (var i = 1974; i<= 2011; i++){
             x_ax.push(i.toString());
         }
-        year = {};
+        var year = {};
         for (var i = 0; i<data['Astoria'].length; i++){
             var yr = data['Astoria'][i]['year'];
             year[yr] = {}
