@@ -2,31 +2,12 @@ $(document).ready(function () {
     $.getJSON("../data/grouped_neighborhoods.json", function (data) {
         console.log(data);
         console.log(data['Astoria']);
-//        family_size = {
-//            '1': [],
-//            '2-4': [],
-//            '5+': [],
-//            'condo': []
-//        }
-//        for (var i = 0; i<data['Astoria'].length; i++){
-//            if(data['Astoria'][i]['familysize'] === '1'){
-//                family_size['1'].push(data['Astoria'][i]);
-//            }
-//            else if (data['Astoria'][i]['familysize'] === '2-4'){
-//                family_size['2-4'].push(data['Astoria'][i]);
-//            }
-//            else if (data['Astoria'][i]['familysize'] === '5+'){
-//                family_size['5+'].push(data['Astoria'][i]);
-//            }
-//            else if (data['Astoria'][i]['familysize'] === 'condo'){
-//                family_size['condo'].push(data['Astoria'][i]);
-//            }
-//        }
-        x_ax = ['x']
+
+        x_ax = ['x'];
         for (var i = 1974; i<= 2011; i++){
             x_ax.push(i.toString());
-        };
-        year = {}
+        }
+        year = {};
         for (var i = 0; i<data['Astoria'].length; i++){
             var yr = data['Astoria'][i]['year'];
             year[yr] = {}

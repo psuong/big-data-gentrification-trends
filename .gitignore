@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/windows,osx,linux,vim
 
 ### Windows ###
@@ -83,3 +82,5 @@ tags
 # Temporary data
 .ipynb_checkpoints/
 
+# VirtualEnv
+/[Vv]env
