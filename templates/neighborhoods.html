@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+
+{% block body %}
+
+<select name="neighborhood">
+    {% for neighborhood in neighborhoods %}
+        <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+    {% endfor %}
+</select>
+
+<div id="median-housing">
+</div>
+
+{% endblock %}

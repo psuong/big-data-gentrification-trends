@@ -7,9 +7,10 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     context_dict = {
-        'neighborhoods': create_neighborhood_list()
+        'neighborhoods': create_neighborhood_list(),
+        'page_title': 'Data'
     }
-    pass
+    return render_template('neighborhoods.html', **context_dict)
 
 
 def create_neighborhood_list():
@@ -23,3 +24,7 @@ def create_neighborhood_list():
         for neighborhood in neighborhoods:
             neighborhood_list.append(neighborhood)
     return neighborhood_list
+
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
