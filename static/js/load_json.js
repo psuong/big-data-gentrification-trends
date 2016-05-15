@@ -1,25 +1,23 @@
-$(document).ready(function () {
+function loadJSON(name) {
     $.getJSON("/static/data/grouped_neighborhoods.json", function (data) {
-        console.log(data);
-        console.log(data['Astoria']);
-
-        x_ax = ['x'];
-        for (var i = 1974; i<= 2011; i++){
+        var x_ax = ['x'];
+        
+        for (var i = 1974; i <= 2011; i++) {
             x_ax.push(i.toString());
         }
         var year = {};
-        for (var i = 0; i<data['Astoria'].length; i++){
-            var yr = data['Astoria'][i]['year'];
+        for (var i = 0; i < data[name].length; i++) {
+            var yr = data[name][i]['year'];
             year[yr] = {}
         }
-        for (var i = 0; i<data['Astoria'].length; i++){
-            var fs = data['Astoria'][i]['familysize'];
-            var yr = data['Astoria'][i]['year'];
-            var price = data['Astoria'][i]['price'];
+        for (var i = 0; i < data[name].length; i++) {
+            var fs = data[name][i]['familysize'];
+            var yr = data[name][i]['year'];
+            var price = data[name][i]['price'];
             year[yr][fs] = price;
             year[yr]['year'] = yr
         }
-        console.log(year);
+
         var neighborhood_data = c3.generate({
             bindto: '#median-housing',
             data: {
@@ -85,5 +83,4 @@ $(document).ready(function () {
             }
         });
     });
-
-});
+};

@@ -22,7 +22,7 @@ def create_neighborhood_list():
     neighborhood_list = []
     with open('neighborhoods.txt', 'r') as neighborhoods:
         for neighborhood in neighborhoods:
-            neighborhood_list.append(neighborhood)
+            neighborhood_list.append(neighborhood.strip('\n'))
     return neighborhood_list
 
 
