@@ -1,10 +1,5 @@
 function loadJSON(name) {
     $.getJSON("/static/data/grouped_neighborhoods.json", function (data) {
-        var x_ax = ['x'];
-        
-        for (var i = 1974; i <= 2011; i++) {
-            x_ax.push(i.toString());
-        }
         var year = {};
         for (var i = 0; i < data[name].length; i++) {
             var yr = data[name][i]['year'];
@@ -17,7 +12,7 @@ function loadJSON(name) {
             year[yr][fs] = price;
             year[yr]['year'] = yr
         }
-
+        console.log(year)
         var neighborhood_data = c3.generate({
             bindto: '#median-housing',
             data: {
@@ -77,6 +72,64 @@ function loadJSON(name) {
                 y: {
                     label: {
                         text: 'Price ($)'
+                    },
+                    show: true
+                }
+            }
+        });
+    });
+    $.getJSON("/static/data/taxi_data.json", function (data) {
+//        console.log(data[name]);
+        var year = {}
+        for (var i = 0; i < data[name].length; i++) {
+            var yr = data[name][i]['year'];
+            year[yr] = {}
+        }
+        for (var i = 0; i < data[name].length; i++) {
+            var ct = data[name][i]['count'];
+            var yr = Number(data[name][i]['year']);
+            var tip = data[name][i]['avg_tip'];
+            year[yr]['count'] = ct;
+            year[yr]['year'] = yr;
+            year[yr]['avg_tip'] = tip
+        }
+        console.log(year)
+
+        var taxi_data = c3.generate({
+            bindto:'#taxi-data',
+            data: {
+                json: [
+                    year[2009],
+                    year[2012],
+                    year[2015]
+                ],
+                keys:{
+                    x: 'year',
+                    value: ['count', 'avg_tip']
+                },
+                type: 'bar',
+                axes:{
+                    count : 'y',
+                    avg_tip : 'y2'
+                }
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    label: {
+                        text: 'Year'
+                    },
+                    show: true
+                },
+                y: {
+                    label: {
+                        text: '# of people'
+                    },
+                    show: true
+                },
+                y2:{
+                    label:{
+                        text: 'Price($)'
                     },
                     show: true
                 }
