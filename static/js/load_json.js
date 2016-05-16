@@ -67,16 +67,16 @@ function loadJSON(name) {
                 year[yr]['avg_tip'] = tip;
                 list_of_year.push(year[yr]);
             }
+            console.log('if')
         }
         else{
+            console.log('else')
             var list_of_year = [{
-                '1':0,
-                '2-4':0,
-                '5+':0,
-                'condo':0,
-                'year':0
+                'count': 0,
+                'year': 0
             }]
         }
+        console.log(year)
             var taxi_data = c3.generate({
                 bindto:'#taxi-data',
                 data: {
@@ -93,7 +93,7 @@ function loadJSON(name) {
                 },
                 axis: {
                     x: {
-                        type: 'category',
+//                        type: 'category',
                         label: {
                             text: 'Year'
                         },
@@ -132,10 +132,7 @@ function loadJSON(name) {
         }
         else{
             var list_of_year = [{
-                '1':0,
-                '2-4':0,
-                '5+':0,
-                'condo':0,
+                'count':0,
                 'year':0
             }]
         }
