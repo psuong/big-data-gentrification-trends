@@ -35,8 +35,7 @@ This will run the server on PORT 5000 on your localhost, so please visit that ad
 When launching the web app, you will be given a dropdown menu. Pick any of the available neighorhoods and click submit to view data within that neighborhood. The user interface
 is fairly simple and looks like the following image below.
 
-
-[User Interface][WebApp.png]
+![User Interface](WebApp.png)
 
 ## Contributors
 - [Dong Liang](https://github.com/dongliang3571)
